@@ -1,0 +1,351 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines,
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+\newcommand\course{CS311H}
+\newcommand\hwnumber{1}      % THE HOMEWORK NUMBER
+% <-- homework number
+\newcommand\NetIDa{jb79823}           % <-- YOUR EID
+\newcommand\NetIDb{Jimmy Bao}           % <-- YOUR NAME
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}
+\chead{\textbf{\Large Problem Set 1}}
+\rhead{\course}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+% Welcome to LaTeX! If this is your first
+% rodeo, read on, otherwise get to work!
+% LaTeX lets us easily typeset our math to make it
+% look pretty. It can be a bit of pain initially
+% but it becomes a breeze as you go and add your own
+% shortcuts (macros).
+
+% Above we just imported some useful libraries. The nice
+% part about using OverLeaf is you do not have to install anything.
+% The 2 lines below will be useful when you do proofs.
+%
+
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}{Lemma}[claim]
+
+%
+% You will notice all LaTeX commands begin with a "\".
+% Comments in LaTeX begin with a "%" sign. You will have to
+% write \% if you ever want an actual sign to print.
+% Below we will setup the title, author, and date of the document.
+%
+
+% This indicates the beginning of the meat of the document
+\begin{document}
+
+
+\section*{Problem 1}
+    % To insert a numbered item in the list, use the \item command.
+    % Here, we have created a sample truth table for you.
+    % The "\[" indicate the beginning of "Display math" mode.
+    % Essentially this makes your math look big and pretty.
+    % the \begin{array} indicates we are making a table of sorts
+    % The |c c|c| indicates there is a line, then 2 columns, another
+    % line, another column and then a line. The "c" indicates each column
+    % value is centered within the column.
+    % QUESTION 1
+    % To do sublists, we will just do another enumerate command here
+    \begin{enumerate}
+    \item % QUESTION 1.a
+    \[
+    \begin{array}{|c c c|c|}
+    % We use "&" to separate column entries
+    % Here the "\land" command stands for "logical and"
+    % similarly there's \lor, \lnot
+    % \rightarrow is used for implication
+    % We've filled in one row for you, fill in the rest.
+    p & q & p \lor q & \lnot p \rightarrow q \\ % We use \\ to go to the next line
+     \hline % this stands for horizontal line
+    T & T & T & T\\
+    T & F & T & T \\
+    F & T & T & T \\
+    F & F & F & F
+    \end{array}
+    \]
+
+    \item % QUESTION 1.b
+     \[
+    \begin{array}{|c c c|c|}
+    % We use "&" to separate column entries
+    % Here the "\land" command stands for "logical and"
+    % similarly there's \lor, \lnot
+    % \rightarrow is used for implication
+    % We've filled in one row for you, fill in the rest.
+    p & q & p \land q & \lnot(p \rightarrow \lnot q) \\ % We use \\ to go to the next line
+     \hline % this stands for horizontal line
+    T & T & T & T\\
+    T & F & F & F \\
+    F & T & F & F \\
+    F & F & F & F
+    \end{array}
+    \]
+
+    \item % QUESTION 1.c
+     \[
+    \begin{array}{|c c c|c|}
+    % We use "&" to separate column entries
+    % Here the "\land" command stands for "logical and"
+    % similarly there's \lor, \lnot
+    % \rightarrow is used for implication
+    % We've filled in one row for you, fill in the rest.
+    p & q & p \leftrightarrow q & (\lnot p \rightarrow q) \rightarrow \lnot(p \rightarrow \lnot q) \\ % We use \\ to go to the next line
+     \hline % this stands for horizontal line
+    T & T & T & T\\
+    T & F & F & F \\
+    F & T & F & F \\
+    F & F & T & T
+    \end{array}
+    \]
+
+    \item % QUESTION 1.d
+     \[
+    \begin{array}{|c c c|c|}
+    % We use "&" to separate column entries
+    % Here the "\land" command stands for "logical and"
+    % similarly there's \lor, \lnot
+    % \rightarrow is used for implication
+    % We've filled in one row for you, fill in the rest.
+    p & q & p \oplus q & \lnot((\lnot p \rightarrow q) \rightarrow \lnot(p \rightarrow \lnot q)) \\ % We use \\ to go to the next line
+     \hline % this stands for horizontal line
+    T & T & F & F\\
+    T & F & T & T \\
+    F & T & T & T \\
+    F & F & F & F
+    \end{array}
+    \]
+    \end{enumerate}
+
+\section*{Problem 2}
+    % QUESTION 2
+    \begin{enumerate}
+    % We can create a list inside a list to begin a sublist
+    % Everything between the $ $ signs is formatted as math.
+    % However, it is formatted as inline math. If you were to use $$ $$ instead,
+    % that would be in "display mode" which displays the math in a much larger fashion
+    % in a new line. Fill in your answers between the provided $ $. We've done an example for you
+    % For implies use "\rightarrow", for biconditional use "\leftrightarrow"
+    \item
+        \begin{enumerate}
+            \item ``I will go swimming unless it is raining or it's cold": $ \lnot r \land h \rightarrow s $
+            \item ``I will go swimming only if it is hot and not raining": $ s \rightarrow h \land \lnot r $
+            \item  ``For me to go swimming, it is necessary that it's hot and not raining": $ s \rightarrow h \land \lnot r $
+        \end{enumerate}
+
+    \item Sentences 2 and 3 are equivalent, because in both cases it displays that if I go swimming it implies that it is hot and not raining. In sentence 1, the converse to sentences 2 and 3 is displayed. However, the converse is not necessarily equivalent to the original statement.
+    \end{enumerate}
+
+    \section*{Problem 3}
+    \begin{enumerate}
+
+        \item \begin{claim}
+        $(\neg p \lor q) \rightarrow q$ is contingent.
+        \end{claim}
+
+        \begin{proof}
+
+        \[
+            \begin{array}{|c c|c|}
+            % We use "&" to separate column entries
+            % Here the "\land" command stands for "logical and"
+            % similarly there's \lor, \lnot
+            % \rightarrow is used for implication
+            % We've filled in one row for you, fill in the rest.
+            p & q & (\lnot p \lor q) \rightarrow q \\ % We use \\ to go to the next line
+             \hline % this stands for horizontal line
+            T & T & T \\
+            T & F & T \\
+            F & T & T \\
+            F & F & F \\
+            \end{array}
+        \]
+
+        \end{proof}
+
+        \item \begin{claim}
+        $(((p \rightarrow q) \rightarrow p) \rightarrow p)$ is valid.
+        \end{claim}
+
+        \begin{proof}
+
+        \[
+            \begin{array}{|c c|c|}
+            % We use "&" to separate column entries
+            % Here the "\land" command stands for "logical and"
+            % similarly there's \lor, \lnot
+            % \rightarrow is used for implication
+            % We've filled in one row for you, fill in the rest.
+            p & q & (((p \rightarrow q) \rightarrow p) \rightarrow p) \\ % We use \\ to go to the next line
+             \hline % this stands for horizontal line
+            T & T & T \\
+            T & F & T \\
+            F & T & T \\
+            F & F & T \\
+            \end{array}
+        \]
+
+        \end{proof}
+
+        \item
+        \begin{claim}
+        $\neg ( (\neg (p \land q)  \rightarrow (p\rightarrow  \neg q)) )$ is unsatisfiable.
+        \end{claim}
+
+        \begin{proof}
+
+        \[
+            \begin{array}{|c c|c|}
+            % We use "&" to separate column entries
+            % Here the "\land" command stands for "logical and"
+            % similarly there's \lor, \lnot
+            % \rightarrow is used for implication
+            % We've filled in one row for you, fill in the rest.
+            p & q & \neg ( (\neg (p \land q)  \rightarrow (p\rightarrow  \neg q)) ) \\ % We use \\ to go to the next line
+             \hline % this stands for horizontal line
+            T & T & F \\
+            T & F & F \\
+            F & T & F \\
+            F & F & F \\
+            \end{array}
+        \]
+
+        \end{proof}
+
+    \end{enumerate}
+
+\section*{Problem 4}
+    % To do proofs using reduction rules, we will use the \begin{align*} environment
+    % This lets us put several lines on math which are automatically aligned for you
+    % Remember to not leave an empty line in an align* environment.
+    % To state the justification for each line, we will use the \tag command
+    % For instance
+    \begin{claim}
+    $\neg((p \lor q) \rightarrow \neg q) \equiv q$.
+    \end{claim}
+    \begin{proof}
+    \begin{align*}
+        \neg((p \lor q) \rightarrow \neg q) \equiv q \\
+        \lnot (\lnot (p \lor q) \lor \lnot q) \tag{Implication Removal} \\
+        \lnot \lnot (p \lor q) \land \lnot \lnot q \equiv q \tag{Distributivity Law} \\
+        (p \lor q) \land q \equiv q \tag{Negation Law} \\
+        q \land (p \lor q) \equiv q \tag{Commutative Law} \\
+        q \land (q \lor p) \equiv q \tag{Commutative Law} \\
+        q \equiv q \tag{Absorption Law}
+    \end{align*}
+    \end{proof}
+
+\section*{Problem 5}
+
+    \begin{enumerate}
+        \item The formula is: $ (\lnot (g \land m) \land (\lnot l \rightarrow m)) \rightarrow (g \rightarrow l) $
+        \item
+        \begin{claim}
+        The argument is valid.
+        \end{claim}
+        \begin{proof}
+
+        \[
+
+            \begin{array}{|c c c|c|}
+            % We use "&" to separate column entries
+            % Here the "\land" command stands for "logical and"
+            % similarly there's \lor, \lnot
+            % \rightarrow is used for implication
+            % We've filled in one row for you, fill in the rest.
+            g & m & l & (\lnot (g \land m) \land (\lnot l \rightarrow m)) \rightarrow (g \rightarrow l) \\ % We use \\ to go to the next line
+             \hline % this stands for horizontal line
+            T & T & T & T\\
+            T & T & F & T\\
+            T & F & T & T\\
+            T & F & F & T\\
+            F & T & T & T\\
+            F & T & F & T\\
+            F & F & T & T\\
+            F & F & F & T\\
+            \end{array}
+        \]
+
+        Since for all interpretations $I$, the formula $F$ evaluates to true ($I \models F$ for all $I$), $F$ is valid. Since the argument is valid if and only if $F$ is valid, the argument is valid.
+
+        \end{proof}
+
+
+    \end{enumerate}
+
+\section*{Problem 6}
+    \begin{claim}
+    The murderer is Beth.
+    \end{claim}
+    \begin{proof}
+
+        Let $a$ be the proposition "Alex is the murderer", $b$ be the proposition "Beth is the murderer", and let $c$ be the proposition "Carlos is the murderer". Generating a propositional formula $F$ involving variables $a, b, c$ such that the argument is valid if and only if $F$ is valid, $F : (a \oplus b \oplus c) \land \lnot(a \land b \land c) \land (\lnot b \rightarrow a) \land (\lnot c \rightarrow \lnot a)$.
+
+        \[
+
+            \begin{array}{|c c c|c|}
+            % We use "&" to separate column entries
+            % Here the "\land" command stands for "logical and"
+            % similarly there's \lor, \lnot
+            % \rightarrow is used for implication
+            % We've filled in one row for you, fill in the rest.
+            a & b & c & (a \oplus b \oplus c) \land \lnot(a \land b \land c) \land (\lnot b \rightarrow a) \land (\lnot c \rightarrow \lnot a) \\ % We use \\ to go to the next line
+             \hline % this stands for horizontal line
+            T & T & T & F\\
+            T & T & F & F\\
+            T & F & T & F\\
+            T & F & F & F\\
+            F & T & T & F\\
+            F & T & F & T\\
+            F & F & T & F\\
+            F & F & F & F\\
+            \end{array}
+        \]
+
+        The only interpretation $I$ where $I \models F$
+        (the propositional formula $F$ evaluates to true under $I$) is $I : \{a \mapsto \text{false}, b \mapsto \text{true}, c \mapsto \text{false}\}$. Therefore, from the definition of $b$, Beth is the murderer.
+    \end{proof}
+
+\end{document}
